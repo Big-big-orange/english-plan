@@ -1,0 +1,7 @@
+# 授权码不进仓库
+english-mail.config.json
+mail.log
+mail.out
+
+__pycache__/
+.tmp*
