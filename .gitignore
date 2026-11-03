@@ -5,3 +5,4 @@ mail.out
 
 __pycache__/
 .tmp*
+.secret-value.json
