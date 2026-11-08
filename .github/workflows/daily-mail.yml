@@ -2,8 +2,8 @@ name: english-mail
 
 on:
   schedule:
-    # UTC 23:00 = 北京时间次日 07:00
-    - cron: "0 23 * * *"
+    # UTC 17:00 = 北京时间次日 01:00
+    - cron: "0 17 * * *"
   workflow_dispatch: {}   # 也可以在网页上手动点运行
 
 permissions:

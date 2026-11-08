@@ -1,10 +1,10 @@
 # english-plan
 
-12 个月英语自学计划（旅游英语 + 远程工作英文会议），每天 07:00 自动发一封「今天做什么」到邮箱。
+12 个月英语自学计划（旅游英语 + 远程工作英文会议），每天 01:00 自动发一封「今天做什么」到邮箱。
 
 - `english-plan.md` —— 52 周打卡表，每天一条具体动作，App 名字写死在里面
 - `english-mail-reminder.py` —— 读 md，生成邮件，通过 163 SMTP 发送（纯标准库）
-- `.github/workflows/daily-mail.yml` —— 每天 07:00（北京时间）在云端跑一次，不依赖本机开机
+- `.github/workflows/daily-mail.yml` —— 每天 01:00（北京时间）在云端跑一次，不依赖本机开机
 
 ## 一次性配置（10 分钟）
 
@@ -12,7 +12,7 @@
 
 ```bash
 # 在 GitHub 网页上新建仓库，名字 english-plan，选 Private
-cd D:/Code/PI/english-plan-repo
+cd D:/Code/PI/03_英语学习/english-plan-repo
 git remote add origin https://github.com/Big-big-orange/english-plan.git
 git branch -M main
 git push -u origin main
@@ -36,7 +36,8 @@ git push -u origin main
   "to": "bigbigrao_model@163.com",
   "sender_name": "English Coach",
   "start_date": "2026-11-03",
-  "trip_date": "2027-11-02"
+  "trip_date": "2027-11-02",
+  "tz_offset_hours": 8
 }
 ```
 
@@ -50,7 +51,7 @@ git push -u origin main
 
 | 想做什么 | 怎么做 |
 |---|---|
-| 每天自动收信 | 什么都不用做，07:00 自动发 |
+| 每天自动收信 | 什么都不用做，01:00 自动发 |
 | 今天没收到 | Actions 里看那次 run 的日志，或补跑一次 Run workflow |
 | 改计划 | 直接改 `english-plan.md` 里对应那周的文字，push 上去，第二天生效 |
 | 打卡 | 把 `☐` 改成 `✅`，commit 一下 |

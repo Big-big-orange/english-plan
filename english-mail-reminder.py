@@ -458,7 +458,10 @@ def main() -> None:
         ("碎片 · ≤5 min", "Anki：新卡 ≤8 张/天"),
     ]
 
-    today = dt.date.fromisoformat(args.date) if args.date else dt.date.today()
+    # 云端 runner 是 UTC，必须按北京时间算「今天」，否则会差一天
+    tz_off = int(cfg.get("tz_offset_hours", 8))
+    now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=tz_off)
+    today = dt.date.fromisoformat(args.date) if args.date else now.date()
     start = dt.date.fromisoformat(cfg["start_date"])
     day_no = max(1, (today - start).days + 1)   # 计划开始前统一按第 1 天展示
     week_no = max(1, min(52, (max(day_no, 1) - 1) // 7 + 1))
